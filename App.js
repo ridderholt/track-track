@@ -1,21 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Provider as PaperProvider, Appbar } from 'react-native-paper';
+import Index from './Index';
+
+const styles = StyleSheet.create({
+  appHeader: {
+    padding: 5,
+  }
+});
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <PaperProvider>
+          <Appbar.Header style={styles.appHeader}>
+              <Appbar.Content title="track track go" subtitle="din vän i skogen" />
+          </Appbar.Header>
+        <Index />
+      </PaperProvider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
